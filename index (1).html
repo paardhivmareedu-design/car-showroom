@@ -1,0 +1,2586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VORTEX MOTORS | Luxury & High-Performance Car Showroom</title>
+  <!-- Google Fonts for High-End Automotive Aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+/* ==========================================================================
+   VORTEX MOTORS - LUXURY AUTOMOTIVE SHOWROOM
+   Pure HTML5 & CSS3 Design System
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --bg-dark: #07090e;
+  --bg-primary: #0c1017;
+  --bg-card: #121824;
+  --bg-card-hover: #172030;
+  --bg-elevated: #1b2438;
+  
+  --accent-gold: #f59e0b;
+  --accent-gold-light: #fbbf24;
+  --accent-gold-glow: rgba(245, 158, 11, 0.35);
+  --accent-cyan: #00f0ff;
+  --accent-cyan-glow: rgba(0, 240, 255, 0.25);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-focus: #f59e0b;
+  
+  --badge-hybrid: #e11d48;
+  --badge-electric: #10b981;
+  --badge-petrol: #f59e0b;
+  --badge-track: #8b5cf6;
+  --badge-luxury: #0ea5e9;
+  --badge-suv: #d97706;
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+
+  /* Shadows & Effects */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.6), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 25px rgba(245, 158, 11, 0.25);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+ul {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Container & Layout Utilities
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.section {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 10%, #fbbf24 65%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(245, 158, 11, 0.1);
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   3. Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 1.85rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-normal);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 4px 15px var(--accent-gold-glow);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #ffffff, var(--accent-gold-light));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5);
+  color: #000000;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  border: 1px solid var(--border-medium);
+  backdrop-filter: blur(8px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent-gold-light);
+  border: 1px solid var(--accent-gold);
+}
+
+.btn-outline:hover {
+  background: var(--accent-gold);
+  color: #000000;
+}
+
+.btn-sm {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.82rem;
+}
+
+.btn-lg {
+  padding: 1rem 2.2rem;
+  font-size: 1rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Top Bar & Header Navigation
+   -------------------------------------------------------------------------- */
+.top-bar {
+  background-color: #05070a;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  padding: 0.55rem 0;
+  color: var(--text-secondary);
+}
+
+.top-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.badge-live {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.top-bar-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.top-bar-text strong {
+  color: #ffffff;
+}
+
+.top-bar-contact {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(12, 16, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.logo-symbol {
+  font-size: 1.6rem;
+  color: var(--accent-gold);
+  filter: drop-shadow(0 0 10px var(--accent-gold-glow));
+}
+
+.logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  color: #ffffff;
+}
+
+.logo-accent {
+  color: var(--accent-gold);
+  font-weight: 400;
+  margin-left: 3px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  position: relative;
+  padding: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: #ffffff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  margin-left: 0.5rem;
+}
+
+/* Pure CSS Hamburger Menu */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+}
+
+.nav-toggle-label span {
+  display: block;
+  height: 2.5px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+/* --------------------------------------------------------------------------
+   5. Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 0;
+  background: 
+    radial-gradient(circle at 75% 30%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 20% 70%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
+    linear-gradient(to bottom, rgba(7, 9, 14, 0.6) 0%, rgba(7, 9, 14, 0.95) 100%),
+    url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 9, 14, 0.3) 0%, rgba(7, 9, 14, 0.85) 80%, var(--bg-dark) 100%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 960px;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-gold);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 0.5rem 1.4rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.8rem;
+}
+
+.pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px var(--accent-gold);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  color: #cbd5e1;
+  line-height: 1.7;
+  max-width: 760px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  background: rgba(18, 24, 36, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1.8rem 1.2rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-number small {
+  font-size: 1rem;
+  color: var(--accent-gold);
+  font-family: var(--font-body);
+  font-weight: 700;
+  margin-left: 2px;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 500;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 50px;
+  background: var(--border-subtle);
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   6. Models Showcase Section
+   -------------------------------------------------------------------------- */
+.models-section {
+  background: var(--bg-dark);
+}
+
+.filter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.filter-btn {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: #000000;
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  box-shadow: 0 4px 15px var(--accent-gold-glow);
+}
+
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.5rem;
+}
+
+.car-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.car-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(245, 158, 11, 0.15);
+  background: var(--bg-card-hover);
+}
+
+.card-image-box {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.car-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+.card-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+}
+
+.badge-hybrid { background: rgba(225, 29, 72, 0.85); color: #ffffff; }
+.badge-electric { background: rgba(16, 185, 129, 0.85); color: #ffffff; }
+.badge-petrol { background: rgba(245, 158, 11, 0.85); color: #000000; }
+.badge-track { background: rgba(139, 92, 246, 0.85); color: #ffffff; }
+.badge-luxury { background: rgba(14, 165, 233, 0.85); color: #ffffff; }
+.badge-suv { background: rgba(217, 119, 6, 0.85); color: #ffffff; }
+
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.car-card:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+.card-body {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.car-year {
+  font-size: 0.8rem;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.car-name {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.car-price-box {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.price-prefix {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.car-price {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent-gold-light);
+  letter-spacing: 0.5px;
+}
+
+.specs-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  padding: 1.1rem 0;
+  margin-bottom: 1.2rem;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mini-spec {
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-gold);
+  margin-bottom: 0.2rem;
+}
+
+.mini-val {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.mini-key {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.8rem;
+}
+
+.ft-tag {
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+}
+
+.card-footer-action {
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   7. Engineering Deep-Dive Specifications Section
+   -------------------------------------------------------------------------- */
+.specs-section {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.specs-deep-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.deep-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.deep-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.deep-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+}
+
+.deep-icon-box svg {
+  width: 26px;
+  height: 26px;
+  color: var(--accent-gold);
+}
+
+.deep-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #ffffff;
+}
+
+.deep-desc {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
+}
+
+.spec-data-list {
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1rem;
+}
+
+.spec-data-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.86rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.spec-data-list li:last-child {
+  border-bottom: none;
+}
+
+.spec-data-list span {
+  color: var(--text-muted);
+}
+
+.spec-data-list strong {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   8. Key Features Grid
+   -------------------------------------------------------------------------- */
+.features-section {
+  background: var(--bg-dark);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.feature-box {
+  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(18, 24, 36, 0.5) 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  transition: all var(--transition-normal);
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feat-icon {
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+}
+
+.feat-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.feat-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   9. Model Comparison Matrix Table
+   -------------------------------------------------------------------------- */
+.compare-section {
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  box-shadow: var(--shadow-lg);
+  -webkit-overflow-scrolling: touch;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 820px;
+}
+
+.compare-table th,
+.compare-table td {
+  padding: 1.2rem 1.4rem;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.compare-table thead th {
+  background: #090c12;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #ffffff;
+  border-bottom: 2px solid var(--border-medium);
+  vertical-align: bottom;
+}
+
+.table-lead {
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-secondary);
+}
+
+.table-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-gold);
+  background: rgba(245, 158, 11, 0.15);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.4rem;
+}
+
+.compare-table thead h4 {
+  font-size: 1.2rem;
+  margin: 0.2rem 0;
+}
+
+.th-price {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--accent-gold-light);
+}
+
+.col-highlight {
+  background: rgba(245, 158, 11, 0.04);
+  border-left: 1px solid rgba(245, 158, 11, 0.2);
+  border-right: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.compare-table thead th.col-highlight {
+  background: rgba(245, 158, 11, 0.09);
+  border-top: 3px solid var(--accent-gold);
+}
+
+.row-label {
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  width: 25%;
+}
+
+.highlight-val {
+  color: var(--accent-gold-light);
+  font-weight: 700;
+}
+
+.compare-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Reviews & Testimonials Section
+   -------------------------------------------------------------------------- */
+.reviews-section {
+  background: var(--bg-dark);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.review-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
+}
+
+.star-rating {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.2rem;
+}
+
+.review-quote {
+  font-style: italic;
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  flex-grow: 1;
+}
+
+.reviewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.2rem;
+}
+
+.reviewer-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1e293b, #334155);
+  border: 1px solid var(--accent-gold);
+  color: var(--accent-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.reviewer-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.reviewer-role {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   11. VIP Test Drive Booking Section
+   -------------------------------------------------------------------------- */
+.test-drive-section {
+  background: 
+    radial-gradient(circle at 10% 50%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-dark) 100%);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.test-drive-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.vip-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.vip-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.vip-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.vip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.vip-icon {
+  font-size: 1.6rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.vip-item h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.vip-item p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.showroom-callout {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-md);
+}
+
+.callout-icon {
+  font-size: 1.8rem;
+}
+
+.showroom-callout strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.showroom-callout p {
+  color: var(--accent-gold-light);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* Test Drive Form Styling */
+.form-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 2.8rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.form-title {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+}
+
+.form-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: #080c14;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #ffffff;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f59e0b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.1em;
+  padding-right: 2.5rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+  background: #0b111c;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+}
+
+.form-checkbox-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.2rem;
+  accent-color: var(--accent-gold);
+  cursor: pointer;
+}
+
+.form-checkbox-group label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.form-submit-btn {
+  margin-bottom: 1rem;
+}
+
+.form-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer
+   -------------------------------------------------------------------------- */
+.footer {
+  background: #040609;
+  border-top: 1px solid var(--border-subtle);
+  padding: 5rem 0 2rem;
+  color: var(--text-secondary);
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-desc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin: 1.2rem 0 1.8rem;
+  max-width: 320px;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-gold-light);
+  transition: all var(--transition-fast);
+}
+
+.social-icon:hover {
+  background: var(--accent-gold);
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--accent-gold-light);
+  padding-left: 4px;
+}
+
+.footer-location {
+  margin-bottom: 1.2rem;
+}
+
+.footer-location strong {
+  display: block;
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
+.footer-location p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 2rem;
+  font-size: 0.85rem;
+}
+
+.footer-bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.legal-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.legal-links a:hover {
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   13. Responsive Media Queries (Mobile & Tablet)
+   -------------------------------------------------------------------------- */
+
+/* Large Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .stat-divider:nth-child(4) {
+    display: none;
+  }
+
+  .test-drive-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets and Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .top-bar-contact {
+    display: none;
+  }
+
+  .top-bar-text {
+    font-size: 0.78rem;
+  }
+
+  /* Mobile Navigation Hamburger */
+  .nav-toggle-label {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: rgba(10, 14, 22, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: height 0.4s ease-in-out;
+    border-bottom: 1px solid var(--border-medium);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1.5rem;
+    gap: 1.4rem;
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    max-width: 260px;
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* Hamburger Toggle Interaction via CSS */
+  .nav-toggle:checked ~ .nav-menu {
+    height: calc(100vh - 80px);
+    overflow-y: auto;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
+  }
+
+  .models-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-container {
+    padding: 1.8rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Small Smart Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .filter-wrapper {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .filter-btn {
+    white-space: nowrap;
+  }
+
+  .card-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .car-price-box {
+    text-align: left;
+    margin-top: 0.4rem;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Top Notification Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-container">
+      <span class="badge-live">2026 Collection</span>
+      <p class="top-bar-text">Experience the all-new <strong>Hyperion GT & Aether EV</strong>. Private viewings now open.</p>
+      <div class="top-bar-contact">
+        <span>📍 Flagship Galleries: New York • London • Dubai</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#home" class="logo">
+        <span class="logo-symbol">⚡</span>
+        <span class="logo-text">VORTEX<span class="logo-accent">MOTORS</span></span>
+      </a>
+
+      <!-- Pure CSS Mobile Hamburger Toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="nav-menu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#models" class="nav-link">Car Models</a></li>
+          <li><a href="#specifications" class="nav-link">Specifications</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#compare" class="nav-link">Comparison</a></li>
+          <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+          <li><a href="#test-drive" class="btn btn-primary nav-btn">Book Test Drive</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span class="pill-dot"></span> Flagship 2026 Reveal
+      </div>
+      <h1 class="hero-title">BEYOND POWER.<br><span class="text-gradient">PURE VELOCITY.</span></h1>
+      <p class="hero-subtitle">
+        Engineering bespoke hypercars and visionary electric grand tourers for those who demand unmatched performance, aeronautic aerodynamics, and bespoke luxury.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#models" class="btn btn-primary btn-lg">Explore Models</a>
+        <a href="#test-drive" class="btn btn-secondary btn-lg">Schedule VIP Test Drive</a>
+      </div>
+
+      <!-- Quick Stats Strip -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">1,150<small>HP</small></span>
+          <span class="stat-label">Peak Power Output</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">1.9<small>s</small></span>
+          <span class="stat-label">0-60 MPH Acceleration</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">355<small>KM/H</small></span>
+          <span class="stat-label">Top Track Velocity</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">520<small>MI</small></span>
+          <span class="stat-label">Max Electric Range</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase Models Section -->
+  <section id="models" class="section models-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">2026 Portfolio</span>
+        <h2 class="section-title">DISCOVER THE <span class="text-gradient">FLEET</span></h2>
+        <p class="section-desc">
+          Meticulously crafted machines engineered with zero compromise. Select your vision of modern performance.
+        </p>
+      </div>
+
+      <!-- Category Filter Pills (CSS Active States) -->
+      <div class="filter-wrapper">
+        <a href="#models" class="filter-btn active">All Vehicles (6)</a>
+        <a href="#card-hyperion" class="filter-btn">Hypercars</a>
+        <a href="#card-aether" class="filter-btn">Electric (EV)</a>
+        <a href="#card-sovereign" class="filter-btn">Executive Sedans</a>
+        <a href="#card-ursa" class="filter-btn">Performance SUVs</a>
+      </div>
+
+      <!-- Models Grid -->
+      <div class="models-grid">
+
+        <!-- Car Card 1: Vortex Hyperion GT -->
+        <article class="car-card" id="card-hyperion">
+          <div class="card-image-box">
+            <span class="card-badge badge-hybrid">V8 Twin-Turbo Hybrid</span>
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" alt="Vortex Hyperion GT Hypercar" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Hyperion GT</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$345,000</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">1,150 HP</span>
+                <span class="mini-key">Horsepower</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">1.95s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">225 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">AWD e-Torque</span>
+                <span class="mini-key">Drivetrain</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">Carbon Monocoque</span>
+              <span class="ft-tag">Active DRS Wing</span>
+              <span class="ft-tag">F1-Dual Clutch 8-Spd</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Car Card 2: Vortex Aether EV -->
+        <article class="car-card" id="card-aether">
+          <div class="card-image-box">
+            <span class="card-badge badge-electric">100% Pure Electric</span>
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80" alt="Vortex Aether EV Grand Tourer" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Aether EV</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$138,500</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">850 HP</span>
+                <span class="mini-key">Dual Permanent</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">2.3s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">190 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">520 Miles</span>
+                <span class="mini-key">Battery Range</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">800V Ultra-Charge (15m)</span>
+              <span class="ft-tag">Spatial 3D Audio</span>
+              <span class="ft-tag">Autopilot L3</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Car Card 3: Vortex Valravn Spyder -->
+        <article class="car-card" id="card-valravn">
+          <div class="card-image-box">
+            <span class="card-badge badge-petrol">Naturally Aspirated V10</span>
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1200&q=80" alt="Vortex Valravn Spyder Roadster" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Valravn Spyder</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$289,000</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">760 HP</span>
+                <span class="mini-key">5.2L V10 9,000 RPM</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">2.8s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">208 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">RWD Track Bias</span>
+                <span class="mini-key">Drivetrain</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">Power Retractable Hardtop</span>
+              <span class="ft-tag">Titanium Exhaust</span>
+              <span class="ft-tag">Ceramic Carbon Brakes</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Car Card 4: Vortex Obsidian Apex -->
+        <article class="car-card" id="card-obsidian">
+          <div class="card-image-box">
+            <span class="card-badge badge-track">Track Special Edition</span>
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Vortex Obsidian Apex Coupe" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Obsidian Apex</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$415,000</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">1,020 HP</span>
+                <span class="mini-key">Twin-Turbo Flat-6</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">2.1s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">218 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">AWD Vectoring</span>
+                <span class="mini-key">Drivetrain</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">Swan-Neck Carbon Wing</span>
+              <span class="ft-tag">Telemetry Recorder</span>
+              <span class="ft-tag">Forged Magnesium Wheels</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Car Card 5: Vortex Sovereign Royale -->
+        <article class="car-card" id="card-sovereign">
+          <div class="card-image-box">
+            <span class="card-badge badge-luxury">Ultra Luxury Executive</span>
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1200&q=80" alt="Vortex Sovereign Royale Luxury Sedan" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Sovereign Royale</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$220,000</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">680 HP</span>
+                <span class="mini-key">6.0L Twin-Turbo V12</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">3.6s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">175 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">Magic Carpet Air</span>
+                <span class="mini-key">Suspension</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">Starlight Headliner</span>
+              <span class="ft-tag">Executive Recline Lounge</span>
+              <span class="ft-tag">Acoustic Double Glass</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Car Card 6: Vortex Ursa Terra -->
+        <article class="car-card" id="card-ursa">
+          <div class="card-image-box">
+            <span class="card-badge badge-suv">All-Terrain Super SUV</span>
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Vortex Ursa Terra Luxury SUV" loading="lazy" class="card-img">
+            <div class="card-hover-overlay">
+              <a href="#specifications" class="btn btn-sm btn-outline">Technical Specs</a>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <div>
+                <span class="car-year">2026 Model</span>
+                <h3 class="car-name">Vortex Ursa Terra SUV</h3>
+              </div>
+              <div class="car-price-box">
+                <span class="price-prefix">Starting at</span>
+                <span class="car-price">$185,000</span>
+              </div>
+            </div>
+
+            <!-- Key Specs Grid -->
+            <div class="specs-mini-grid">
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="mini-val">720 HP</span>
+                <span class="mini-key">4.0L Bi-Turbo V8</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span class="mini-val">3.1s</span>
+                <span class="mini-key">0-60 MPH</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4"/></svg>
+                <span class="mini-val">192 MPH</span>
+                <span class="mini-key">Top Speed</span>
+              </div>
+              <div class="mini-spec">
+                <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+                <span class="mini-val">Adaptive 4x4</span>
+                <span class="mini-key">Terrain Mgmt</span>
+              </div>
+            </div>
+
+            <!-- Feature Tags -->
+            <div class="feature-tags">
+              <span class="ft-tag">Quad Exhaust Valves</span>
+              <span class="ft-tag">Panoramic Skyroof</span>
+              <span class="ft-tag">7,500 Lb Tow Capacity</span>
+            </div>
+
+            <div class="card-footer-action">
+              <a href="#test-drive" class="btn btn-primary btn-block">Book Test Drive</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications Deep-Dive Section -->
+  <section id="specifications" class="section specs-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Engineering Benchmark</span>
+        <h2 class="section-title">PRECISION <span class="text-gradient">SPECIFICATIONS</span></h2>
+        <p class="section-desc">
+          Engineered to push physics to its absolute boundary. Explore the core pillars powering Vortex automotive supremacy.
+        </p>
+      </div>
+
+      <div class="specs-deep-grid">
+        <!-- Spec Card 1 -->
+        <div class="deep-card">
+          <div class="deep-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          <h3 class="deep-title">Powertrain & Propulsion</h3>
+          <p class="deep-desc">From our 9,000 RPM naturally aspirated V10 to quad-rotor silicon-carbide electric motors delivering instantaneous peak torque.</p>
+          <ul class="spec-data-list">
+            <li><span>Max System Torque</span><strong>1,200 Nm @ 2,100 RPM</strong></li>
+            <li><span>Transmission</span><strong>8-Speed Dual-Clutch F1 Paddle</strong></li>
+            <li><span>Electric Architecture</span><strong>800V Ultra-High Rate</strong></li>
+            <li><span>Differential</span><strong>Electronic Active LSD</strong></li>
+          </ul>
+        </div>
+
+        <!-- Spec Card 2 -->
+        <div class="deep-card">
+          <div class="deep-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3 class="deep-title">Aerodynamics & Chassis</h3>
+          <p class="deep-desc">Carbon-composite monocoque tub reinforced with aerospace titanium subframes. Active underbody venturi tunnels create 850kg of downforce.</p>
+          <ul class="spec-data-list">
+            <li><span>Drag Coefficient</span><strong>0.24 Cd (High-Speed Mode)</strong></li>
+            <li><span>Downforce @ 155 MPH</span><strong>850 kg Active Balance</strong></li>
+            <li><span>Curb Weight</span><strong>1,490 kg (Dry Monocoque)</strong></li>
+            <li><span>Weight Distribution</span><strong>44% Front / 56% Rear</strong></li>
+          </ul>
+        </div>
+
+        <!-- Spec Card 3 -->
+        <div class="deep-card">
+          <div class="deep-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </div>
+          <h3 class="deep-title">Braking & Dynamics</h3>
+          <p class="deep-desc">Track-proven 420mm front carbon-ceramic rotors clamped by monolithic 10-piston calipers, stopping from 60-0 mph in just 88 feet.</p>
+          <ul class="spec-data-list">
+            <li><span>Front Rotors</span><strong>420mm Carbon-Ceramic Matrix</strong></li>
+            <li><span>60-0 MPH Braking</span><strong>88 Feet / 26.8 Meters</strong></li>
+            <li><span>Suspension</span><strong>Pushrod Adaptive Magnetorheological</strong></li>
+            <li><span>Steering</span><strong>Rear-Wheel Active Steering (4.5°)</strong></li>
+          </ul>
+        </div>
+
+        <!-- Spec Card 4 -->
+        <div class="deep-card">
+          <div class="deep-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="deep-title">Cockpit & Telemetry</h3>
+          <p class="deep-desc">Curved 27-inch OLED glass display powered by neural telemetry processors, accompanied by hand-stitched semi-aniline leather and matte carbon fiber.</p>
+          <ul class="spec-data-list">
+            <li><span>Cockpit Display</span><strong>27" Curved 4K OLED HUD</strong></li>
+            <li><span>Sound System</span><strong>22-Speaker 1,600W Burmester 3D</strong></li>
+            <li><span>Connectivity</span><strong>5G Global Satellite Telematics</strong></li>
+            <li><span>Drive Modes</span><strong>Track, Corsa, Sport, Grand Tour</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Section -->
+  <section id="features" class="section features-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Unrivaled Excellence</span>
+        <h2 class="section-title">THE VORTEX <span class="text-gradient">ADVANTAGE</span></h2>
+        <p class="section-desc">
+          Every vehicle is sculpted with obsessive passion, pioneering technology, and bespoke craftsmanship that redefines luxury automotive standards.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feat-icon">⚡</div>
+          <h3 class="feat-title">Next-Gen Electrification</h3>
+          <p class="feat-text">800-volt high-density battery architectures replenish 10% to 80% charge in just 15 minutes at all Vortex Hypercharge stations worldwide.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">🏎️</div>
+          <h3 class="feat-title">Aero-Vectoring Technology</h3>
+          <p class="feat-text">Integrated hydraulic rear wings and active underfloor diffusers adapt instantaneously to cornering loads, stabilizing lateral Gs past 1.45G.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">💎</div>
+          <h3 class="feat-title">Bespoke Artisan Atelier</h3>
+          <p class="feat-text">Choose from over 300 exterior paint finishes, custom carbon weave weaves, hand-polished exotic hardwoods, and monogrammed leather appointments.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">🛡️</div>
+          <h3 class="feat-title">Shield L3 Autonomy</h3>
+          <p class="feat-text">32 ultrasonic sensors, solid-state LiDAR, and dual neural processors enable high-speed highway autonomous piloting and remote concierge summoning.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">🌍</div>
+          <h3 class="feat-title">Global White-Glove Concierge</h3>
+          <p class="feat-text">Enjoy 24/7 dedicated factory roadside care, door-to-door closed-trailer maintenance transport, and VIP admission to world Grand Prix paddocks.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">🏆</div>
+          <h3 class="feat-title">5-Year Circuit Warranty</h3>
+          <p class="feat-text">Unprecedented bumper-to-bumper 5-year/60,000-mile factory warranty that explicitly covers sanctioned track day usage and brake discs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Side-by-Side Comparison Section -->
+  <section id="compare" class="section compare-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Side-by-Side Analysis</span>
+        <h2 class="section-title">MODEL <span class="text-gradient">COMPARISON</span></h2>
+        <p class="section-desc">
+          Directly compare our premier flagship configurations to find the tailored machine that matches your driving ethos.
+        </p>
+      </div>
+
+      <!-- Comparison Table Container -->
+      <div class="table-responsive">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="table-lead">Specifications</th>
+              <th class="col-highlight">
+                <span class="table-badge">Flagship</span>
+                <h4>Hyperion GT</h4>
+                <span class="th-price">$345,000</span>
+              </th>
+              <th>
+                <span class="table-badge">EV Leader</span>
+                <h4>Aether EV</h4>
+                <span class="th-price">$138,500</span>
+              </th>
+              <th>
+                <span class="table-badge">Purist</span>
+                <h4>Valravn Spyder</h4>
+                <span class="th-price">$289,000</span>
+              </th>
+              <th>
+                <span class="table-badge">Versatile</span>
+                <h4>Ursa Terra SUV</h4>
+                <span class="th-price">$185,000</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-label">Powertrain / Engine</td>
+              <td class="col-highlight"><strong>V8 Twin-Turbo + Triple e-Motors</strong></td>
+              <td>Dual Permanent Synchronous EV</td>
+              <td>5.2L Naturally Aspirated V10</td>
+              <td>4.0L Bi-Turbo V8 Engine</td>
+            </tr>
+            <tr>
+              <td class="row-label">Total Horsepower</td>
+              <td class="col-highlight"><span class="highlight-val">1,150 HP</span></td>
+              <td>850 HP</td>
+              <td>760 HP</td>
+              <td>720 HP</td>
+            </tr>
+            <tr>
+              <td class="row-label">0-60 MPH (0-100 km/h)</td>
+              <td class="col-highlight"><span class="highlight-val">1.95 Seconds</span></td>
+              <td>2.3 Seconds</td>
+              <td>2.8 Seconds</td>
+              <td>3.1 Seconds</td>
+            </tr>
+            <tr>
+              <td class="row-label">Top Track Speed</td>
+              <td class="col-highlight"><strong>225 MPH (362 km/h)</strong></td>
+              <td>190 MPH (305 km/h)</td>
+              <td>208 MPH (335 km/h)</td>
+              <td>192 MPH (309 km/h)</td>
+            </tr>
+            <tr>
+              <td class="row-label">Range / Fuel Economy</td>
+              <td class="col-highlight">450 mi total (35 mi EV)</td>
+              <td><span class="highlight-val">520 mi (Pure EV)</span></td>
+              <td>18 MPG Combined</td>
+              <td>21 MPG Combined</td>
+            </tr>
+            <tr>
+              <td class="row-label">Drivetrain & Torque Vectoring</td>
+              <td class="col-highlight">Intelligent e-AWD</td>
+              <td>Quad-Vector Dual AWD</td>
+              <td>RWD Track Differential</td>
+              <td>Full-Time 4x4 Adaptive</td>
+            </tr>
+            <tr>
+              <td class="row-label">Chassis Construction</td>
+              <td class="col-highlight">Full Carbon Monocoque</td>
+              <td>Aluminum-Titanium Spaceframe</td>
+              <td>Carbon-Alloy Hybrid</td>
+              <td>High-Strength Steel & Alloy</td>
+            </tr>
+            <tr>
+              <td class="row-label">Seating Capacity</td>
+              <td class="col-highlight">2 Seater Cockpit</td>
+              <td>5 Seater Executive</td>
+              <td>2 Seater Roadster</td>
+              <td>5 or 7 Seater Luxury</td>
+            </tr>
+            <tr>
+              <td class="row-label">Autonomous Capabilities</td>
+              <td class="col-highlight">Level 2+ Track Assist</td>
+              <td>Level 3 Highway Hands-Off</td>
+              <td>Level 2 Dynamic Pilot</td>
+              <td>Level 2+ Urban & Highway</td>
+            </tr>
+            <tr>
+              <td class="row-label">Standard Warranty</td>
+              <td class="col-highlight">5 Years / Track Inclusive</td>
+              <td>8-Year Battery & Drivetrain</td>
+              <td>5 Years / 60,000 Miles</td>
+              <td>5 Years / 60,000 Miles</td>
+            </tr>
+            <tr>
+              <td class="row-label">Action</td>
+              <td class="col-highlight">
+                <a href="#test-drive" class="btn btn-sm btn-primary">Select Model</a>
+              </td>
+              <td>
+                <a href="#test-drive" class="btn btn-sm btn-outline">Select Model</a>
+              </td>
+              <td>
+                <a href="#test-drive" class="btn btn-sm btn-outline">Select Model</a>
+              </td>
+              <td>
+                <a href="#test-drive" class="btn btn-sm btn-outline">Select Model</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Reviews / Testimonials Section -->
+  <section id="testimonials" class="section reviews-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">Driver Acclaim</span>
+        <h2 class="section-title">THE EXPERTS <span class="text-gradient">& COLLECTORS SPEAK</span></h2>
+        <p class="section-desc">
+          Acclaimed by automotive journalists, competitive drivers, and connoisseurs worldwide.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "The Vortex Hyperion GT is quite simply the pinnacle of the modern combustion-hybrid era. The instant throttle response and 1.95-second launch will rearrange your senses."
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">JL</div>
+            <div>
+              <h4 class="reviewer-name">Julian Lambert</h4>
+              <span class="reviewer-role">Senior Editor, Apex Autojournal</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "We replaced our entire daily executive fleet with the Aether EV. The 520-mile verified range, silence at 120 mph, and bespoke craftsmanship put traditional luxury on notice."
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">MS</div>
+            <div>
+              <h4 class="reviewer-name">Marcus Sterling</h4>
+              <span class="reviewer-role">Managing Director, Sterling Capital</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="review-quote">
+            "The Valravn Spyder's V10 screams at 9,000 RPM in a way no turbocharged engine can replicate. Driving it through the Swiss Alps was an unforgettable spiritual experience."
+          </p>
+          <div class="reviewer-meta">
+            <div class="reviewer-avatar">ER</div>
+            <div>
+              <h4 class="reviewer-name">Elena Rossi</h4>
+              <span class="reviewer-role">Professional GT3 Driver & Collector</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Test Drive Booking Section -->
+  <section id="test-drive" class="section test-drive-section">
+    <div class="container">
+      <div class="test-drive-wrapper">
+
+        <!-- Left Column: VIP Experience Overview -->
+        <div class="vip-info">
+          <span class="section-tag">Private Appointment</span>
+          <h2 class="vip-title">RESERVE YOUR <span class="text-gradient">TEST DRIVE</span></h2>
+          <p class="vip-desc">
+            Experience our machines in their natural habitat. Every test-drive session is tailor-designed for you alongside a certified Vortex Performance Specialist.
+          </p>
+
+          <div class="vip-features-list">
+            <div class="vip-item">
+              <span class="vip-icon">🏁</span>
+              <div>
+                <h4>Closed Course or Scenic Route</h4>
+                <p>Choose between private runway launches or curated scenic highway cruising.</p>
+              </div>
+            </div>
+
+            <div class="vip-item">
+              <span class="vip-icon">🍸</span>
+              <div>
+                <h4>VIP Lounge Hospitality</h4>
+                <p>Enjoy private barista service, fine refreshments, and an acoustic sound preview.</p>
+              </div>
+            </div>
+
+            <div class="vip-item">
+              <span class="vip-icon">🎨</span>
+              <div>
+                <h4>Bespoke Atelier Consultation</h4>
+                <p>Personalize real swatches of leather, paint finishes, and carbon trim options.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="showroom-callout">
+            <div class="callout-icon">📞</div>
+            <div>
+              <strong>Immediate Inquiries?</strong>
+              <p>Call our Concierge Desk: +1 (800) 555-VORTEX</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive HTML Form -->
+        <div class="form-container">
+          <form class="test-drive-form" action="#test-drive" method="GET">
+            <h3 class="form-title">Schedule Experience</h3>
+            <p class="form-subtitle">Fill out your details to receive priority showroom confirmation.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fullName">Full Legal Name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Alexander Vance" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="alexander@domain.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+              </div>
+              <div class="form-group">
+                <label for="carModel">Select Car Model *</label>
+                <select id="carModel" name="carModel" required>
+                  <option value="" disabled selected>Select vehicle of interest</option>
+                  <option value="hyperion">Vortex Hyperion GT ($345,000)</option>
+                  <option value="aether">Vortex Aether EV ($138,500)</option>
+                  <option value="valravn">Vortex Valravn Spyder ($289,000)</option>
+                  <option value="obsidian">Vortex Obsidian Apex ($415,000)</option>
+                  <option value="sovereign">Vortex Sovereign Royale ($220,000)</option>
+                  <option value="ursa">Vortex Ursa Terra SUV ($185,000)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="showroom">Preferred Showroom *</label>
+                <select id="showroom" name="showroom" required>
+                  <option value="" disabled selected>Select location</option>
+                  <option value="ny">New York - Manhattan Flagship</option>
+                  <option value="bh">Beverly Hills - Wilshire Atelier</option>
+                  <option value="london">London - Mayfair Gallery</option>
+                  <option value="dubai">Dubai - DIFC Performance Centre</option>
+                  <option value="tokyo">Tokyo - Ginza Studio</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="experienceType">Driving Experience</label>
+                <select id="experienceType" name="experienceType">
+                  <option value="highway">High-Speed Highway Cruise (60 mins)</option>
+                  <option value="track">Proving Grounds / Track Session (90 mins)</option>
+                  <option value="delivery">White-Glove At-Home Delivery Test</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="preferredDate">Preferred Date *</label>
+                <input type="date" id="preferredDate" name="preferredDate" required>
+              </div>
+              <div class="form-group">
+                <label for="preferredTime">Preferred Time *</label>
+                <select id="preferredTime" name="preferredTime" required>
+                  <option value="morning">Morning (10:00 AM - 12:00 PM)</option>
+                  <option value="afternoon">Afternoon (1:00 PM - 4:00 PM)</option>
+                  <option value="twilight">Twilight Drive (5:00 PM - 7:00 PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="comments">Special Requests & Inquiries</label>
+              <textarea id="comments" name="comments" rows="3" placeholder="Specify tailor options, trade-in interest, or private track accommodations..."></textarea>
+            </div>
+
+            <div class="form-checkbox-group">
+              <input type="checkbox" id="licenseConfirm" name="licenseConfirm" required>
+              <label for="licenseConfirm">I confirm that I hold an active valid driver's license and am 21 years of age or older.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg form-submit-btn">
+              Confirm VIP Test Drive Reservation
+            </button>
+            <p class="form-note">🔒 Your personal information is encrypted and held strictly confidential.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#home" class="logo">
+          <span class="logo-symbol">⚡</span>
+          <span class="logo-text">VORTEX<span class="logo-accent">MOTORS</span></span>
+        </a>
+        <p class="footer-desc">
+          Crafting the world's most evocative hypercars and luxury grand tourers. Engineered without compromise for the exceptional few.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Instagram">IG</a>
+          <a href="#" class="social-icon" aria-label="YouTube">YT</a>
+          <a href="#" class="social-icon" aria-label="Twitter">X</a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">IN</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Car Models</h4>
+        <ul class="footer-links">
+          <li><a href="#card-hyperion">Hyperion GT Hybrid</a></li>
+          <li><a href="#card-aether">Aether EV Grand Tourer</a></li>
+          <li><a href="#card-valravn">Valravn Spyder V10</a></li>
+          <li><a href="#card-obsidian">Obsidian Apex Track</a></li>
+          <li><a href="#card-sovereign">Sovereign Royale</a></li>
+          <li><a href="#card-ursa">Ursa Terra Performance SUV</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Engineering</h4>
+        <ul class="footer-links">
+          <li><a href="#specifications">Aerodynamics Lab</a></li>
+          <li><a href="#specifications">Silicon-Carbide EV</a></li>
+          <li><a href="#features">Bespoke Atelier</a></li>
+          <li><a href="#compare">Model Comparison</a></li>
+          <li><a href="#test-drive">Track Proving Grounds</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Showroom Galleries</h4>
+        <div class="footer-location">
+          <strong>Manhattan Flagship</strong>
+          <p>57th & 5th Ave, New York, NY</p>
+          <p>Mon - Sat: 9:00 AM - 8:00 PM</p>
+        </div>
+        <div class="footer-location">
+          <strong>London Mayfair</strong>
+          <p>Old Bond Street, London W1S</p>
+          <p>Mon - Sat: 10:00 AM - 7:00 PM</p>
+        </div>
+        <div class="footer-location">
+          <strong>Dubai DIFC</strong>
+          <p>Gate Village 04, Dubai, UAE</p>
+          <p>Sun - Fri: 10:00 AM - 9:00 PM</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 VORTEX MOTORS INC. All Rights Reserved. Pure HTML & CSS Luxury Showroom.</p>
+        <div class="legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Emissions & Range Data</a>
+          <a href="#">Atelier Configurator</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
